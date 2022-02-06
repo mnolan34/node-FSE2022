@@ -28,7 +28,7 @@ export default class TuitController implements TuitControllerI {
         this.tuitDao.createTuit(req.body)
             .then(tuit => res.json(tuit));
     deleteTuit = (req: Request, res: Response) =>
-        this.tuitDao.deleteTuit(req.params.userid)
+        this.tuitDao.deleteTuit(req.params.tid)
             .then(status => res.json(status));
     updateTuit = (req: Request, res: Response) =>
         this.tuitDao.updateTuit(req.params.userid, req.body)

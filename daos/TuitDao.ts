@@ -1,4 +1,5 @@
 import Tuit from "../models/User";
+import TuitModel from "../mongoose/TuitModel";
 import TuitDaoI from "../interfaces/TuitDao";
 
 export default class TuitDao implements TuitDaoI{
@@ -15,10 +16,10 @@ export default class TuitDao implements TuitDaoI{
     return await TuitModel.create(tuit);
    }
    async updateTuit(tid: string, tuit: Tuit): Promise<any>{
-    return await TuitModel.updateOne({_id:tid}, {$set: user})
+    return await TuitModel.updateOne({_id:tid}, {$set: Tuit});
    }
 
-   async deleteTuit(tid: string, tuit:Tuit): Promise<any>{
+   async deleteTuit(tid: string): Promise<any>{
        return await TuitModel.update
    }
 }
