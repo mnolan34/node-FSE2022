@@ -1,15 +1,15 @@
 import User from "../models/User";
-import {UserDocument, UserModel} from "../mongoose/UserModel";
+import UserModel from "../mongoose/UserModel";
 import UserDaoI from "../interfaces/UserDao";
 
 export default class UserDao implements UserDaoI{
     async findAllUsers(): Promise<User[]> {
         return await UserModel.find();
     }
-    async findUserByID(uid: string): Promise<any> {
+    async findUserById(uid: string): Promise<any> {
         return await UserModel.findById(uid);
     }
-    async createUser(user: User): Promise<UserDocument>{
+    async createUser(user: User): Promise<void>{
         return await UserModel.create(user);
     }
     async deleteUser(uid: string): Promise<any> {
