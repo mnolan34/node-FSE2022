@@ -5,6 +5,6 @@ const TuitSchema = new mongoose.Schema({
     tuit: {type: String, required: true},
     postedOn: {type: String, required: true},
     postedBy: {type: UserModel, required: true},
-}, {collection: 'users'});
+}, {collection: 'tuits'});
 
 export default TuitSchema;
