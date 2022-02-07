@@ -1,13 +1,15 @@
 import {Request, Response, Express} from "express";
 import TuitDao from "../daos/TuitDao";
+import Tuit from "../models/Tuit";
 import TuitControllerI from "../interfaces/TuitController";
 
 export default class TuitController implements TuitControllerI {
     app: Express;
     tuitDao: TuitDao;
-    constructor(app: Express, tuitDao: TuitDao) {
+    constructor(app: Express) { //, tuitDao: TuitDao) {
         this.app = app;
-        this.tuitDao = tuitDao;
+        // this.tuitDao = tuitDao;
+        this.tuitDao = new TuitDao();
         this.app.get('/tuits', this.findAllTuits);
         this.app.get('/tuits/:tid', this.findTuitById);
         this.app.get('/tuits/:uid/tuits', this.findTuitsByUser);
@@ -24,9 +26,11 @@ export default class TuitController implements TuitControllerI {
     findTuitsByUser = (req: Request, res: Response) =>
         this.tuitDao.findTuitsByUser(req.params.uid)
             .then(tuit => res.json(tuit));
-    createTuit = (req: Request, res: Response) =>
+    createTuit = (req: Request, res: Response) => {
+        console.log(req.body);
         this.tuitDao.createTuit(req.body)
             .then(tuit => res.json(tuit));
+    }
     deleteTuit = (req: Request, res: Response) =>
         this.tuitDao.deleteTuit(req.params.tid)
             .then(status => res.json(status));

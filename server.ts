@@ -21,9 +21,12 @@ app.get('/add/:a/:b', (req: Request, res: Response) =>
     res.send(req.params.a + req.params.b));
 
 //Controller Instances
-//const userController = UserController.getInstance(app);
-//const tuitController = TuitController.getInstance(app);
-
+// const userController = UserController.getInstance(app);
+// const tuitController = TuitController.getInstance(app);
+// require('controllers/TuitController')(app);
+// require('controllers/UserController')(app);
+const userController = new UserController(app);
+const tuitController = new TuitController(app);
 
 const PORT = 4000;
 app.listen(process.env.PORT || PORT);
