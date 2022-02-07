@@ -9,12 +9,16 @@ mongoose.connect('mongodb+srv://doctorSung:pass2022@cluster0.2jivy.mongodb.net/m
 
 //App Control
 const app = express();
-app.use(express.json());
+//app.use(express.json());
+//app.use(require('body-parser').urlencoded({extended: false}));
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 //Adding based on Piazza
 
 app.get('/hello', (req: Request, res: Response) =>
-    res.send('Hello World!'));
+    res.send('Welcome!'));
 
 app.get('/add/:a/:b', (req: Request, res: Response) =>
     res.send(req.params.a + req.params.b));
