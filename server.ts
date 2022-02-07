@@ -5,8 +5,7 @@ import TuitController from "./controllers/TuitController";
 
 //Mongoose control
 import mongoose from "mongoose";
-mongoose.connect("mongodb://localhost:27017/tuiter");
-//mongoose.connect("mongodb://localhost:27017/users");
+mongoose.connect('mongodb+srv://doctorSung:pass2022@cluster0.2jivy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 
 //App Control
 const app = express();
