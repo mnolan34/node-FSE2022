@@ -5,9 +5,10 @@ import TuitController from "./controllers/TuitController";
 
 //Mongoose control
 import mongoose from "mongoose";
-mongoose.connect("mogodb://localhost:27017/tuiter");
+mongoose.connect("mongodb://localhost:27017/tuiter");
+//mongoose.connect("mongodb://localhost:27017/users");
 
-//App Controll
+//App Control
 const app = express();
 app.use(express.json());
 
