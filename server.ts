@@ -6,23 +6,18 @@ import TuitController from "./controllers/TuitController";
 //Mongoose control
 import mongoose from "mongoose";
 
-const DB_USERNAME = process.env.DB_USERNAME;
-const DB_PASSWORD = process.env.DB_PASSWORD;
+const DB_USERNAME = 'doctorSung'; //process.env.DB_USERNAME;
+const DB_PASSWORD = 'pass2022'; //process.env.DB_PASSWORD;
 const connectionString = 'mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@cluster0.2jivy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-mongoose.connect(connectionString);
+mongoose.connect(connectionString, { useNewUrlParser: true});
 
 //App Control
 const app = express();
 app.use(express.json());
-//app.use(require('body-parser').urlencoded({extended: false}));
-//const bodyParser = require('body-parser');
-//app.use(bodyParser.urlencoded({extended: false}));
-//app.use(bodyParser.json());
 
 //Adding based on Piazza
-
 app.get('/hello', (req: Request, res: Response) =>
-    res.send('Welcome!'));
+    res.send('Hello World!'));
 
 app.get('/add/:a/:b', (req: Request, res: Response) =>
     res.send(req.params.a + req.params.b));
