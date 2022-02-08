@@ -9,11 +9,11 @@ mongoose.connect('mongodb+srv://doctorSung:pass2022@cluster0.2jivy.mongodb.net/m
 
 //App Control
 const app = express();
-//app.use(express.json());
+app.use(express.json());
 //app.use(require('body-parser').urlencoded({extended: false}));
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+//const bodyParser = require('body-parser');
+//app.use(bodyParser.urlencoded({extended: false}));
+//app.use(bodyParser.json());
 
 //Adding based on Piazza
 
