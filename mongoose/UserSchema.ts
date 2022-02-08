@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
+import User from "../models/User";
 
-const UserSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema<User>({
     username: {type: String, required: true},
     password: {type: String, required: true},
     firstName: String,
     lastName: String,
-    email: String,
+    email: {String, required: true},
     profilePhoto: String,
     headerImage: String,
     accountType: {type: String, default: 'PERSONAL', enum: ['PERSONAL', 'ACADEMIC', 'PROFESSIONAL']},
