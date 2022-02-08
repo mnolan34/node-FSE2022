@@ -6,8 +6,8 @@ import TuitController from "./controllers/TuitController";
 //Mongoose control
 import mongoose from "mongoose";
 
-//const connectionString = 'mongodb+srv://doctorSung:pass2022@cluster0.2jivy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-const connectionString = 'mongodb://localhost:27017/tuiter';
+const connectionString = 'mongodb+srv://doctorSung:pass2022@cluster0.2jivy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+//const connectionString = 'mongodb://localhost:27017/tuiter';
 mongoose.connect(connectionString, { useNewUrlParser: true});
 
 //App Control
