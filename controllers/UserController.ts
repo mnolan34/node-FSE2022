@@ -2,6 +2,7 @@ import {Request, Response, Express} from "express";
 import UserDao from "../daos/UserDao";
 import User from "../models/User";
 import UserControllerI from "../interfaces/UserController";
+import mongoose from "mongoose";
 
 export default class UserController implements UserControllerI {
     private static userDao: UserDao = UserDao.getInstance();
