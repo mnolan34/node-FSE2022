@@ -5,7 +5,11 @@ import TuitController from "./controllers/TuitController";
 
 //Mongoose control
 import mongoose from "mongoose";
-mongoose.connect('mongodb+srv://doctorSung:pass2022@cluster0.2jivy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+
+const DB_USERNAME = process.env.DB_USERNAME;
+const DB_PASSWORD = process.env.DB_PASSWORD;
+const connectionString = 'mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@cluster0.2jivy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+mongoose.connect(connectionString);
 
 //App Control
 const app = express();
