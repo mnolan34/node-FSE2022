@@ -1,13 +1,11 @@
-import {Request, Response, Express} from "express";
+import {Express, Request, Response} from "express";
 import LikeDao from "../daos/LikeDao";
-import Like from "../models/Like";
 import LikeControllerI from "../interfaces/LikeController";
-import mongoose from "mongoose";
-
 
 export default class LikeController implements LikeControllerI {
     private static likeDao: LikeDao = LikeDao.getInstance();
     private static likeController: LikeController | null = null;
+
     public static getInstance = (app: Express): LikeController => {
         if (LikeController.likeController === null) {
             LikeController.likeController = new LikeController();
@@ -24,7 +22,23 @@ export default class LikeController implements LikeControllerI {
         return LikeController.likeController;
     }
 
-    private constructor() {
-    }
+    private constructor() {}
 
+    userLikesTuit = (req: Request, res: Response) =>
+        LikeController.likeDao.userLikesTuit
+        (req.params.uid, req.params.tid)
+            .then(likes => res.json(likes));
+
+    userUnlikesTuit = (req: Request, res: Response) =>
+        LikeController.likeDao.userUnlikesTuit
+        (req.params.uid, req.params.tid)
+            .then(status => res.send(status));
+
+    findAllUsersThatLikedTuit = (req: Request, res: Response) =>
+        LikeController.likeDao.findAllUsersThatLikedTuit
+        (req.params.tid).then(likes => res.json(likes));
+
+    findAllTuitsLikedByUser = (req: Request, res: Response) =>
+        LikeController.likeDao.findAllTuitsLikedByUser
+        (req.params.uid).then(likes => res.json(likes));
 }

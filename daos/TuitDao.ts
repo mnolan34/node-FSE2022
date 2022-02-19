@@ -29,6 +29,7 @@ export default class TuitDao implements TuitDaoI{
     TuitModel.findById(tid)
         .populate()
         .exec();
+
    async createTuit(uid: string, tuit: Tuit): Promise<any>{
        return await TuitModel.create(tuit);
    }
