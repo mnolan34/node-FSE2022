@@ -2,6 +2,7 @@ import express, {Request, Response} from 'express';
 //Import Controllers
 import UserController from "./controllers/UserController";
 import TuitController from "./controllers/TuitController";
+import LikeController from "./controllers/LikeController";
 
 //Mongoose control
 import mongoose from "mongoose";

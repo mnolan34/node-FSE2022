@@ -41,6 +41,4 @@ export default class TuitDao implements TuitDaoI{
    deleteTuit = async (tid: string): Promise<any> =>
        TuitModel.findById(tid)
            .deleteOne()
-
-
 }

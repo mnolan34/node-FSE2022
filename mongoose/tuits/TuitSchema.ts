@@ -9,6 +9,6 @@ const TuitSchema = new mongoose.Schema<Tuit>({
     youtube: String,
     avatarLogo: String,
     imageOverlay: String
-}, {collection: 'tuits'});
+}, {collection: "tuits"});
 
 export default TuitSchema;
