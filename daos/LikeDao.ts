@@ -1,6 +1,6 @@
 import LikeDaoI from "../interfaces/LikeDao";
 import LikeModel from "../mongoose/LikeModel";
-import Like from "../models/Like";
+import Like from "../models/likes/Like";
 
 
 export default class LikeDao implements LikeDaoI{

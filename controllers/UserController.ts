@@ -1,6 +1,6 @@
 import {Request, Response, Express} from "express";
 import UserDao from "../daos/UserDao";
-import User from "../models/User";
+import User from "../models/users/User";
 import UserControllerI from "../interfaces/UserController";
 import mongoose from "mongoose";
 
