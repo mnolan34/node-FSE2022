@@ -1,5 +1,5 @@
 import LikeDaoI from "../interfaces/LikeDao";
-import LikeModel from "../mongoose/LikeModel";
+import LikeModel from "../mongoose/likes/LikeModel";
 import Like from "../models/likes/Like";
 
 

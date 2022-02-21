@@ -1,5 +1,5 @@
 import User from "../models/users/User";
-import UserModel from "../mongoose/UserModel";
+import UserModel from "../mongoose/users/UserModel";
 import UserDaoI from "../interfaces/UserDao";
 import mongoose from "mongoose";
 
