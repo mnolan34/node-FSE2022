@@ -39,6 +39,6 @@ export default class LikeController implements LikeControllerI {
         (req.params.tid).then(likes => res.json(likes));
 
     findAllTuitsLikedByUser = (req: Request, res: Response) =>
-        LikeController.likeDao.findAllTuitsLikedByUser
-        (req.params.uid).then(likes => res.json(likes));
+        LikeController.likeDao.findAllTuitsLikedByUser(req.params.uid)
+            .then(likes => res.json(likes));
 }

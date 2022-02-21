@@ -1,4 +1,6 @@
 import mongoose, {Schema} from "mongoose";
+import TuitModel from "./TuitModel";
+import UserModel from "./UserModel";
 import Like from "../models/Like";
 
 const LikeSchema = new mongoose.Schema<Like>({

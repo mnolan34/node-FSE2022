@@ -18,6 +18,6 @@ const UserSchema = new mongoose.Schema<User>({
         latitude: {type: Number, default: 0.0},
         longitude: {type: Number, default: 0.0},
     }
-}, {collection: 'users'});
+}, {collection: "users"});
 
 export default UserSchema;
