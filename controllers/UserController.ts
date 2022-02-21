@@ -1,7 +1,7 @@
 import {Request, Response, Express} from "express";
 import UserDao from "../daos/UserDao";
 import User from "../models/users/User";
-import UserControllerI from "../interfaces/UserController";
+import UserControllerI from "../interfaces/UserControllerI";
 import mongoose from "mongoose";
 
 export default class UserController implements UserControllerI {

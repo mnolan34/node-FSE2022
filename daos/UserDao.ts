@@ -1,7 +1,6 @@
 import User from "../models/users/User";
 import UserModel from "../mongoose/users/UserModel";
-import UserDaoI from "../interfaces/UserDao";
-import mongoose from "mongoose";
+import UserDaoI from "../interfaces/UserDaoI";
 
 export default class UserDao implements UserDaoI{
 
@@ -13,20 +12,22 @@ export default class UserDao implements UserDaoI{
         return UserDao.userDao;
     }
 
-    async findAllUsers(): Promise<User[]> {
-        return await UserModel.find();
-    }
-    async findUserById(uid: string): Promise<any> {
-        return await UserModel.findById(uid);
-    }
+    findAllUsers = async (): Promise<User[]> =>
+        UserModel.find().exec();
+
+    findUserById = async (uid: string): Promise<any> =>
+        UserModel.findById(uid);
+
     //Changed to Promise<any> instead of void
-    async createUser(user: User): Promise<any>{
-        return await UserModel.create(user);
-    }
-    async deleteUser(uid: string): Promise<any> {
-        return await UserModel.deleteOne({_id: uid});
-    }
-    async updateUser(uid: string, user: User): Promise<any> {
-        return await UserModel.updateOne({_id: uid}, {$set: user})
-    }
+    createUser = async (user: User): Promise<any> =>
+        UserModel.create(user);
+
+    deleteUser = async (uid: string): Promise<any> =>
+        UserModel.deleteOne({_id: uid});
+
+    deleteAllUsers = async (): Promise<any> =>
+        UserModel.deleteMany({});
+
+    updateUser = async (uid: string, user: User): Promise<any> =>
+        UserModel.updateOne({_id: uid}, {$set: user})
 }

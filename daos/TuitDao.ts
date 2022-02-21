@@ -1,6 +1,6 @@
 import Tuit from "../models/tuits/Tuit";
 import TuitModel from "../mongoose/tuits/TuitModel";
-import TuitDaoI from "../interfaces/TuitDao";
+import TuitDaoI from "../interfaces/TuitDaoI";
 
 
 export default class TuitDao implements TuitDaoI{
@@ -29,7 +29,8 @@ export default class TuitDao implements TuitDaoI{
     TuitModel.findById(tid)
         .populate()
         .exec();
-   async createTuit(uid: string, tuit: Tuit): Promise<any>{
+
+   async createTuitByUser(uid: string, tuit: Tuit): Promise<any>{
        return await TuitModel.create(tuit);
    }
 

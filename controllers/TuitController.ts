@@ -1,7 +1,7 @@
 import {Request, Response, Express} from "express";
 import TuitDao from "../daos/TuitDao";
 import Tuit from "../models/tuits/Tuit";
-import TuitControllerI from "../interfaces/TuitController";
+import TuitControllerI from "../interfaces/TuitControllerI";
 
 //Implemented Singleton Pattern
 
