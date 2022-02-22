@@ -12,7 +12,7 @@ const PROTOCOL = "mongodb+srv";
 const DB_USERNAME = process.env.DB_USERNAME;
 const DB_PASSWORD = process.env.DB_PASS;
 const DB_URL = process.env.DB_URL;
-const DB_NAME = "myFirstDatabase";
+const DB_NAME = "Tuiter";
 const DB_QUERY = "retryWrites=true&w=majority";
 
 const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${DB_URL}/${DB_NAME}?${DB_QUERY}`;
