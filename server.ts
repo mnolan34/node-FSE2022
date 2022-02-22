@@ -7,8 +7,15 @@ import LikeController from "./controllers/LikeController";
 //Mongoose control
 import mongoose from "mongoose";
 
-const connectionString = 'mongodb+srv://doctorSung:pass2022@cluster0.2jivy.mongodb.net/Tuiter?retryWrites=true&w=majority';
-//const connectionString = 'mongodb://localhost:27017/tuiter';
+
+const PROTOCOL = "mongodb+srv";
+const DB_USERNAME = process.env.DB_USERNAME;
+const DB_PASSWORD = process.env.DB_PASS;
+const DB_URL = process.env.DB_URL;
+const DB_NAME = "myFirstDatabase";
+const DB_QUERY = "retryWrites=true&w=majority";
+
+const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${DB_URL}/${DB_NAME}?${DB_QUERY}`;
 mongoose.connect(connectionString);
 
 //App Control
