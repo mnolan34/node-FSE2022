@@ -35,4 +35,7 @@ export default class UserController implements UserControllerI {
     updateUser = (req: Request, res: Response) =>
         UserController.userDao.updateUser(req.params.userid, req.body)
             .then(status => res.json(status));
+    deleteAllUsers = (req: Request, res: Response) =>
+        UserController.userDao.deleteAllUsers()
+            .then((status) => res.send(status));
 }
