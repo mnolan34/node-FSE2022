@@ -9,7 +9,7 @@ import mongoose from "mongoose";
 
 const connectionString = 'mongodb+srv://doctorSung:pass2022@cluster0.2jivy.mongodb.net/Tuiter?retryWrites=true&w=majority';
 //const connectionString = 'mongodb://localhost:27017/tuiter';
-mongoose.connect(connectionString, { useNewUrlParser: true});
+mongoose.connect(connectionString);
 
 //App Control
 const app = express();
@@ -25,10 +25,8 @@ app.get('/add/:a/:b', (req: Request, res: Response) =>
 //Controller Instances
 const userController = UserController.getInstance(app);
 const tuitController = TuitController.getInstance(app);
+const likeController = LikeController.getInstance(app);
 
-//Below did not parse JSON correctly
-//const userController = new UserController(app);
-//const tuitController = new TuitController(app);
 
 const PORT = 4000;
 app.listen(process.env.PORT || PORT);
