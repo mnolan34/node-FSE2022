@@ -11,12 +11,12 @@ export default class TuitController implements TuitControllerI {
     public static getInstance= (app: Express): TuitController=>{
         if(TuitController.tuitController === null){
             TuitController.tuitController = new TuitController();
-            app.get('/tuits', TuitController.tuitController.findAllTuits);
-            app.get('/tuits/:tid', TuitController.tuitController.findTuitById);
-            app.get('/tuits/:uid/tuits', TuitController.tuitController.findTuitsByUser);
-            app.post('/tuits', TuitController.tuitController.createTuitByUser);
-            app.delete('/tuits/:tid', TuitController.tuitController.deleteTuit);
-            app.put('/tuits/:tid', TuitController.tuitController.updateTuit);
+            app.get('/api/tuits', TuitController.tuitController.findAllTuits);
+            app.get('/api/tuits/:tid', TuitController.tuitController.findTuitById);
+            app.get('/api/tuits/:uid/tuits', TuitController.tuitController.findTuitsByUser);
+            app.post('/api/tuits', TuitController.tuitController.createTuitByUser);
+            app.delete('/api/tuits/:tid', TuitController.tuitController.deleteTuit);
+            app.put('/api/tuits/:tid', TuitController.tuitController.updateTuit);
         }
         return TuitController.tuitController;
     }
