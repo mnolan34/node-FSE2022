@@ -9,10 +9,10 @@ import mongoose from "mongoose";
 //var cors = require('cors');
 
 const PROTOCOL = "mongodb+srv";
-const DB_USERNAME = process.env.DB_USERNAME;
-const DB_PASSWORD = process.env.DB_PASS;
+const DB_USERNAME = process.env.DB_USER;
+const DB_PASSWORD = process.env.DB_Pass;
 const DB_URL = "cluster0.v4of9.mongodb.net";
-const DB_NAME = "myFirstDatabase";
+const DB_NAME = "Tuiter";
 const DB_QUERY = "retryWrites=true&w=majority";
 
 const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${DB_URL}/${DB_NAME}?${DB_QUERY}`;
