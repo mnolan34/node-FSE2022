@@ -34,9 +34,10 @@ export default class TuitDao implements TuitDaoI{
        return await TuitModel.create(tuit);
    }
 
-   updateTuit = async (tid: string): Promise<any> =>
-       TuitModel.findById(tid)
-           .updateOne()
+   updateTuit = async (tid: string, tuit: Tuit): Promise<any> =>
+       TuitModel.updateOne(
+           {_id: tid},
+           {$set: tuit});
 
    deleteTuit = async (tid: string): Promise<any> =>
        TuitModel.findById(tid)
