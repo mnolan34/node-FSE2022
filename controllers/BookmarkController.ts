@@ -13,7 +13,7 @@ export default class BookmarkController implements BookmarkControllerI{
                 BookmarkController.bookmarkController.userBookmarksTuit);
             app.delete("./api/users/:uid/bookmarks/:tid",
                 BookmarkController.bookmarkController.userUnBookmarksTuit);
-            app.get("./api/users/bookmarks",
+            app.get("./api/users/:uid/bookmarks",
                 BookmarkController.bookmarkController.userViewsBookmarkList);
         }
         return BookmarkController.bookmarkController;
