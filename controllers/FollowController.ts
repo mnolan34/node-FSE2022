@@ -27,12 +27,12 @@ export default class FollowController implements FollowControllerI {
 
     findAllUsersFollowingUser = (req: Request, res: Response) =>
         FollowController.followDao.findAllUsersFollowingUser
-        (req.params.uid)
+        (req.params.uidFollowing)
             .then(follows => res.json(follows));
 
     findAllUsersFollowedByUser = (req: Request, res: Response) =>
         FollowController.followDao.findAllUsersFollowedByUser
-        (req.params.uid)
+        (req.params.uidFollower)
             .then(follows => res.json(follows));
 
     userUnFollowsUser = (req: Request, res: Response) =>
