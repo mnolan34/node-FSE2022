@@ -43,5 +43,4 @@ export default class FollowController implements FollowControllerI {
         FollowController.followDao.userFollowsUser
         (req.params.uidFollowing, req.params.uidFollower)
             .then(follows => res.json(follows));
-
 }
