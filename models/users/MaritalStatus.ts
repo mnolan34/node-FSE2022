@@ -4,4 +4,8 @@ enum MaritalStatus{
     Widowed = "WIDOWED"
 };
 
+/**
+ * @file Implements Marital Status Enum
+ */
+
 export default MaritalStatus;

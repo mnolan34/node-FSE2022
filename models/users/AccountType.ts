@@ -3,4 +3,8 @@ enum AccountType{
     Academic = "ACADEMIC",
     Professional = "PROFESSIONAL"
 };
+
+/**
+ * @file Implements AccountType Enum
+ */
 export default AccountType;

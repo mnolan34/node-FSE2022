@@ -1,5 +1,9 @@
 import User from "../users/User";
 
+/**
+ * @file Implement Tuit Model
+ */
+
 export default interface Tuit{
     tuit: string,
     postedBy: User,
