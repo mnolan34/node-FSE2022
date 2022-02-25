@@ -18,6 +18,8 @@ export default class FollowController implements FollowControllerI {
                 FollowController.followController.userUnFollowsUser);
             app.post("/api/users/:uidFollowing/follows/:uidFollower",
                 FollowController.followController.userFollowsUser);
+            //Custom One
+            app.get("api/follows", FollowController.followController.findAllFollows);
         }
 
         return FollowController.followController;
@@ -44,4 +46,9 @@ export default class FollowController implements FollowControllerI {
         FollowController.followDao.userFollowsUser
         (req.params.uidFollowing, req.params.uidFollower)
             .then(follows => res.json(follows));
+
+    findAllFollows = (req: Request, res: Response) =>
+        FollowController.followDao.findAllFollows()
+            .then(follows =>res.json(follows));
+
 }
