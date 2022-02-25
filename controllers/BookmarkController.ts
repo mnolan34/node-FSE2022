@@ -15,6 +15,8 @@ export default class BookmarkController implements BookmarkControllerI{
                 BookmarkController.bookmarkController.userUnBookmarksTuit);
             app.get("/api/users/:uid/bookmarks",
                 BookmarkController.bookmarkController.userViewsBookmarkList);
+            app.get("/api/bookmarks",
+                BookmarkController.bookmarkController.viewAllBookmarks);
         }
         return BookmarkController.bookmarkController;
     }
@@ -32,5 +34,9 @@ export default class BookmarkController implements BookmarkControllerI{
 
     userViewsBookmarkList = (req: Request, res: Response) =>
         BookmarkController.bookmarkDao.userViewsBookmarkList(req.params.uid)
+            .then(bookmarks => res.json(bookmarks));
+
+    viewAllBookmarks = (req: Request, res: Response) =>
+        BookmarkController.bookmarkDao.viewAllBookmarks()
             .then(bookmarks => res.json(bookmarks));
 }
