@@ -19,7 +19,7 @@ export default class FollowController implements FollowControllerI {
             app.post("/api/users/:uidFollowing/follows/:uidFollower",
                 FollowController.followController.userFollowsUser);
             //Custom One
-            app.get("api/follows", FollowController.followController.findAllFollows);
+            app.get("/api/follows", FollowController.followController.findAllFollows);
         }
 
         return FollowController.followController;
