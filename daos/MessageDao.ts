@@ -16,12 +16,12 @@ export default class MessageDao implements MessageDaoI{
     private constructor() {}
 
     userSendsMessage =
-        async(message: string, to: string, from: string): Promise<Message> =>
+        async(message: Message, toID: string, fromID: string): Promise<Message> =>
             MessageModel
-                .create({message: message, to: to, from: from});
+                .create({...message, to: toID, from: fromID});
 
     userDeletesMessage =
-        async(message: string, to: string, from: string): Promise<any> =>
+        async(message: Message, to: string, from: string): Promise<any> =>
             MessageModel
                 .deleteOne({message: message, to: to, from: from});
     userViewsSentMessages =
