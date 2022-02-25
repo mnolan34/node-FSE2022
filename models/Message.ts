@@ -1,7 +1,7 @@
 import User from "./users/User";
 
 export default interface Message{
-    message: String,
+    message: string,
     to: User,
     from: User,
     sentOn: Date
