@@ -1,6 +1,8 @@
 import MessageDaoI from "../interfaces/MessageDaoI";
 import Message from "../models/Message";
 import MessageModel from "../mongoose/MessageModel";
+import Tuit from "../models/tuits/Tuit";
+import TuitModel from "../mongoose/tuits/TuitModel";
 
 export default class MessageDao implements MessageDaoI{
     //implement singleton patter
@@ -38,6 +40,10 @@ export default class MessageDao implements MessageDaoI{
                 .exec();
 
     // Custom Two Down Below
+
+    async findAllMessages(): Promise<Message[]> {
+        return await MessageModel.find();
+    }
 
 
 }

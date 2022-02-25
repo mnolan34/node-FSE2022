@@ -10,14 +10,17 @@ export default class MessageController implements MessageControllerI {
     public static getInstance = (app: Express): MessageController => {
         if (MessageController.messageController === null) {
             MessageController.messageController = new MessageController();
-            app.post("./api/users/:uidFrom/messages/:uidTo",
+            app.post("/api/messages",
                 MessageController.messageController.userSendsMessage);
-            app.delete("./api/users/:uidFrom/messages/:uidTo",
+            app.delete("/api/users/:uidFrom/messages/:uidTo",
                 MessageController.messageController.userDeletesMessage);
-            app.get("./api/users/:uidTo/messages",
+            app.get("/api/users/:uidTo/messages",
                 MessageController.messageController.userViewsReceivedMessages);
-            app.get("./api/users/:uidFrom/messages",
+            app.get("/api/users/:uidFrom/messages",
                 MessageController.messageController.userViewsSentMessages);
+            //Custom Function
+            app.get("/api/messages",
+                MessageController.messageController.findAllMessages);
         }
         return MessageController.messageController;
     }
@@ -43,5 +46,9 @@ export default class MessageController implements MessageControllerI {
     userViewsReceivedMessages = (req: Request, res: Response) =>
         MessageController.messageDao.userViewsReceivedMessages
         (req.params.uidTo)
+            .then(messages => res.json(messages));
+
+    findAllMessages = (req: Request, res: Response) =>
+        MessageController.messageDao.findAllMessages()
             .then(messages => res.json(messages));
 }
