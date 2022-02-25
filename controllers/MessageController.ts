@@ -12,7 +12,7 @@ export default class MessageController implements MessageControllerI {
             MessageController.messageController = new MessageController();
             app.post("/api/messages",
                 MessageController.messageController.userSendsMessage);
-            app.delete("/api/users/:uidFrom/messages/:uidTo",
+            app.delete("/api/messages/:messageID",
                 MessageController.messageController.userDeletesMessage);
             app.get("/api/users/:uidTo/messages",
                 MessageController.messageController.userViewsReceivedMessages);
@@ -35,7 +35,7 @@ export default class MessageController implements MessageControllerI {
 
     userDeletesMessage = (req: Request, res: Response) =>
         MessageController.messageDao.userDeletesMessage
-        (req.body, req.params.uidTo, req.params.uidFrom)
+        (req.params.messageID)
             .then(status => res.json(status));
 
     userViewsSentMessages = (req: Request, res: Response) =>
