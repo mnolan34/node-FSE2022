@@ -9,11 +9,11 @@ export default class BookmarkController implements BookmarkControllerI{
     public static getInstance = (app: Express): BookmarkController =>{
         if(BookmarkController.bookmarkController === null){
             BookmarkController.bookmarkController = new BookmarkController();
-            app.post("./api/users/:uid/bookmarks/:tid",
+            app.post("/api/users/:uid/bookmarks/:tid",
                 BookmarkController.bookmarkController.userBookmarksTuit);
-            app.delete("./api/users/:uid/bookmarks/:tid",
+            app.delete("/api/users/:uid/bookmarks/:tid",
                 BookmarkController.bookmarkController.userUnBookmarksTuit);
-            app.get("./api/users/:uid/bookmarks",
+            app.get("/api/users/:uid/bookmarks",
                 BookmarkController.bookmarkController.userViewsBookmarkList);
         }
         return BookmarkController.bookmarkController;
