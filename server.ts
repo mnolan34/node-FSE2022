@@ -24,7 +24,7 @@ import MessageController from "./controllers/MessageController";
 
 //Mongoose control
 import mongoose from "mongoose";
-//var cors = require('cors');
+var cors = require('cors');
 
 const PROTOCOL = "mongodb+srv";
 const DB_USERNAME = process.env.DB_USER;
@@ -39,7 +39,7 @@ mongoose.connect(connectionString);
 //App Control
 const app = express();
 app.use(express.json());
-//app.use(cors());
+app.use(cors());
 
 //Adding based on Piazza
 app.get('/hello', (req: Request, res: Response) =>
